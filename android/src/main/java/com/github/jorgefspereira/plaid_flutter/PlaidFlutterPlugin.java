@@ -134,6 +134,9 @@ public class PlaidFlutterPlugin implements FlutterPlugin, MethodCallHandler, Act
     else if(call.method.equals("close")) {
       this.close();
     }
+    else if(call.method.equals("continueFromRedirectUri")) {
+      this.continueFromRedirectUriString(call.arguments());
+  }
     else {
       result.notImplemented();
     }
@@ -218,6 +221,11 @@ public class PlaidFlutterPlugin implements FlutterPlugin, MethodCallHandler, Act
       intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
       binding.getActivity().startActivity(intent);
     }
+  }
+
+  private void continueFromRedirectUriString(Map<String, Object> arguments) {
+    String redirectUri = arguments("redirectUri");
+    Plaid.continueFromRedirectUri(redirectUri);
   }
 
   private LinkTokenConfiguration getLinkTokenConfiguration(Map<String, Object> arguments) {
