@@ -225,7 +225,7 @@ public class PlaidFlutterPlugin implements FlutterPlugin, MethodCallHandler, Act
 
   private void continueFromRedirectUriString(Map<String, Object> arguments) {
     String redirectUri = arguments("redirectUri");
-    Plaid.continueFromRedirectUri(redirectUri);
+    //Plaid.continueFromRedirectUri(redirectUri);
   }
 
   private LinkTokenConfiguration getLinkTokenConfiguration(Map<String, Object> arguments) {
